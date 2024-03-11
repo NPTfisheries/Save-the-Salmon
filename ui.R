@@ -7,6 +7,7 @@ dashboardPage(
   dashboardBody(
     fluidRow(
       popUI('Lolo Creek',
+            .spawners = spawners,
             .fec = fec,
             .sex_p = sex_p,
             .parr_s = parr_s,
@@ -16,6 +17,7 @@ dashboardPage(
             .adult_s = adult_s,
             .spawn_s = spawn_s),
       popUI('Johnson Creek',
+            .spawners = spawners,
             .fec = fec,
             .sex_p = sex_p,
             .parr_s = parr_s,
