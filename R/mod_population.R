@@ -14,9 +14,9 @@ popUI <- function(id,
   
   tagList(
     column(width=3, 
-           box(title = id, width = 12, solidHeader = TRUE, status = 'info',
+           box(title = id, width = 12, solidHeader = TRUE, status = 'primary',
                # collapsible parameter box
-               box(title = paste(id, 'Parameters'), solidHeader = FALSE, status = NULL,
+               box(title = 'Parameters', solidHeader = FALSE, status = NULL,
                    width = 12, collapsible = TRUE, collapsed = TRUE,
                    numericInput(inputId = ns('spawners'),
                                 label='Spawners',
@@ -59,7 +59,7 @@ popUI <- function(id,
                # plot
                fluidRow(
                  column(12, 
-                        plotOutput(outputId = ns('pop_plot'))
+                        plotOutput(outputId = ns('pop_plot'), height = '300px')
                  )
                )
            )

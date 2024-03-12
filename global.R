@@ -19,4 +19,4 @@ adult_s <- .90
 spawn_s <- .95
 
 # alphabetic pops
-populations <- sort(c('Lolo Creek', 'Johnson Creek', 'Lostine River', 'Imnaha River'))
+populations <- sort(c('Lolo Creek', 'Johnson Creek', 'Lostine River', 'Imnaha River', 'South Fork Clearwater River'))
