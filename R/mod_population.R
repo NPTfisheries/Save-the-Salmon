@@ -94,7 +94,15 @@ popServer <- function(id) {
       output$pop_plot <- renderPlot({
         ggplot(pop_dat(), aes(x = generation, y = adults_trib)) +
           geom_point(alpha = .25) +
-          geom_smooth()
+          geom_smooth() +
+          scale_y_continuous(breaks = seq(0, 1000, 50)) +
+          scale_x_continuous(breaks = seq(0, 100, 5)) +
+          theme_bw() +
+          xlab('Generation') +
+          ylab('Adults to Tributary') +     
+          theme(
+            panel.grid.minor = element_blank()
+          )
       })
       
       # This dataframe to be used in the main application
