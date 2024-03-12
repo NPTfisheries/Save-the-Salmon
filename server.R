@@ -38,7 +38,16 @@ shinyServer(function(input, output) {
     output$lgr_plot <- renderPlot({
       ggplot(lgr_df, aes(x = generation, y = median_adults_lgr)) +
         geom_point(alpha = .25) +
-        geom_smooth()
+        geom_smooth() +
+        scale_y_continuous(breaks = seq(0, 1000, 50)) +
+        scale_x_continuous(breaks = seq(0, 100, 5)) +
+        theme_bw() +
+        ggtitle('Estimated Adults to Lower Granite Dam') +
+        xlab('Generation') +
+        ylab('Median of Adults') +
+        theme(
+          panel.grid.minor = element_blank()
+        )
     })
     
   }) # observeEvent
