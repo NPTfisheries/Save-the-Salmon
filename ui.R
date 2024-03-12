@@ -6,26 +6,13 @@ dashboardPage(
   dashboardSidebar(disable = T),
   dashboardBody(
     fluidRow(
-      popUI('Lolo Creek',
-            .spawners = spawners,
-            .fec = fec,
-            .sex_p = sex_p,
-            .parr_s = parr_s,
-            .smolt_s = smolt_s,
-            .hydro_s = hydro_s,
-            .ocean_s = ocean_s,
-            .adult_s = adult_s,
-            .spawn_s = spawn_s),
-      popUI('Johnson Creek',
-            .spawners = spawners,
-            .fec = fec,
-            .sex_p = sex_p,
-            .parr_s = parr_s,
-            .smolt_s = smolt_s,
-            .hydro_s = hydro_s,
-            .ocean_s = ocean_s,
-            .adult_s = adult_s,
-            .spawn_s = spawn_s)
+      column(2, offset=5, actionButton(inputId='build_lgr_plot', label='Update LGR Plot')),
+      br(),
+      column(10, offset=1, plotOutput(outputId='lgr_plot'))
+    ),
+    br(),
+    fluidRow(
+      uiOutput(outputId='pop_cards')
     )
   )
 )
