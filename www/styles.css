@@ -1,0 +1,40 @@
+
+/* header */
+.skin-blue .main-header {
+  position:fixed;
+  width:100%;
+}
+
+/* stay below fixed header */
+.content-wrapper {
+  margin-top: 48px;
+}
+
+/* title portion of header
+.skin-blue .main-header .logo {
+background-color: #3c8dbc;
+} */
+
+/*navbar*/
+.skin-blue .main-header .navbar {
+background-color: rgb(54, 127, 169);
+}
+
+/* spinner css */
+.shinybusy-busy {
+  position: fixed !important;
+  z-index:9999 !important;
+  top:200px !important;
+  right:38vw !important;
+  height:300px !important;
+  width:300px !important;
+}
+
+.shinybusy {
+  position: fixed !important;
+  z-index:9999 !important;
+  top:200px !important;
+  right:38vw !important;
+  height:400px !important;
+  width:400px !important;
+}
