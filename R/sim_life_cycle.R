@@ -29,15 +29,7 @@ sim_life_cycle <- function(
     
   }
   
-  # combine results and name iterations
-  dat <- map(seq_len(iterations), 
-             ~all_results[[.x]] %>% 
-               bind_rows()
-  ) %>%
-    bind_rows(.id = 'iteration') %>%
-    select(iteration, generation, everything())
-  
-  return(dat)
+  return(all_results)
     
 }
   
