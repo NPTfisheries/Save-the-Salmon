@@ -1,6 +1,22 @@
 # SERVER
 shinyServer(function(input, output) {
   
+  # Create basemap ----
+  # Basic NPT map area and Snake Basin
+  
+  output$map <- renderLeaflet({
+    leaflet() %>%
+      #addTiles() %>%
+      setView(lng = -115.5660,
+              lat = 45.4000,#44.9218,
+              zoom = 7) %>%
+      addProviderTiles(providers$Esri.WorldTopoMap)#%>%
+      #addPolylines(data = pnw_rivers, color = 'blue', weight = 1) %>%
+      #addPolylines(data = stream_layer, color = 'blue', weight = 1)
+  })# Create basemap ----
+
+  
+  
   # dynamically build the UI based on pops.
   output$pop_cards <- renderUI({
     tagList(

@@ -1,5 +1,7 @@
 library(shiny)
 library(shinydashboard)
+library(leaflet)
+library(leafpop)
 library(tidyverse)
 
 source('./R/mod_population.R')
