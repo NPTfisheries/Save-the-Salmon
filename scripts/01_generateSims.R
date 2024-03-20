@@ -1,3 +1,8 @@
+#' Title Script to generate fish returns.
+#'
+#' Author Ryan Kinzer
+#' Created March 8, 2024
+
 library(tidyverse)
 source(here::here('R', 'life_cycle.R'))
 source(here::here('R', 'sim_life_cycle.R'))

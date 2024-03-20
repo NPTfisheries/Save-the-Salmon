@@ -1,3 +1,8 @@
+#' Title Function to iterate across life-cycle.
+#'
+#' Author Ryan Kinzer
+#' Created March 8, 2024
+
 sim_life_cycle <- function(
     iterations,
     num_generations,
