@@ -91,8 +91,17 @@ popServer <- function(id) {
         )
       }, ignoreNULL = FALSE) #ignoreNULL = fire on startup
       
+      #print(pop_dat())
+      
       output$pop_plot <- renderPlot({
-        ggplot(pop_dat(), aes(x = generation, y = adults_trib)) +
+        
+        pop_df <- bind_rows(pop_dat())
+        
+        #print(pop_df)
+        #assign("pop_df", pop_df, envir = .GlobalEnv)
+        
+        ggplot(pop_df, aes(x = generation, y = adults_trib)) +
+          geom_line(aes(group = iteration), alpha = .25) +
           geom_point(alpha = .25) +
           geom_smooth() +
           scale_y_continuous(breaks = seq(0, 1000, 50)) +
@@ -107,7 +116,10 @@ popServer <- function(id) {
       
       # This dataframe to be used in the main application
       pop_adults_lgr <- reactive({
-        pop_dat() %>%
+        
+        pop_df <- bind_rows(pop_dat())
+        
+        pop_df %>%
           mutate(pop = id) %>%
           select(pop, iteration, generation, adults_lgr)
       })

@@ -10,12 +10,38 @@ dashboardPage(
     ),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Snake Basin Map", tabName = 'map', icon = icon('map')),
       menuItem(
-        "Adult Return Simulation",
-        tabName = 'adult_return',
-        icon = icon('th')
-        )
+        "Snake Basin Map",
+        tabName = 'map',
+        icon = icon('map')), 
+        radioButtons(
+          'basin_spp',
+          label = 'Species',
+          choices = c('Steelhead', 'Sp/sm Chinook'),
+          selected = 'Steelhead'
+        ),
+        # radioButtons(
+        #   'layer',
+        #   label = 'Layer',
+        #   choices = c('Stream', 'Watershed'),
+        #   selected = 'Stream'
+        # ),
+        radioButtons(
+          'huc_metric',
+          label = 'Metric',
+          choices = c(
+            'Intrinsic Potential',
+            'Redd Capacity',
+            'Summer Parr Capacity',
+            'Overwintering Capacity'
+          ),
+          selected = 'Intrinsic Potential'
+        )#,
+      # menuItem(
+      #   "In Progress - Simulation",
+      #   tabName = 'adult_return',
+      #   icon = icon('th')
+      #   )
       )
     ), 
   dashboardBody(
@@ -23,16 +49,21 @@ dashboardPage(
     tabItems(
       tabItem(tabName = 'map',
               div(class="outer",
-                  tags$style(type = "text/css", ".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
+                  tags$style(type = "text/css", ".outer {position: fixed; top: 41px; left: 225px; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
                   leafletOutput("map", width = "100%", height = "100%")
                   )
               ),
       tabItem(tabName = 'adult_return',
         fluidRow(
-          column(2, offset=5, actionButton(inputId='build_lgr_plot', label='Update LGR Plot')),
-          br(),
-          column(10, offset=1, plotOutput(outputId='lgr_plot'))
-          ),
+          column(width = 12,
+                 box(solidHeader = TRUE, status='primary',
+                     title = 'Total Lower Granite Escapement',
+                     actionButton(inputId='build_lgr_plot', label='Update LGR Plot'),
+                     br(),
+                     plotOutput(outputId='lgr_plot')
+                     )
+          )
+        ),
         br(),
         fluidRow(
           uiOutput(outputId='pop_cards')

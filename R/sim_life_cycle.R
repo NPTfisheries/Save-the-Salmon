@@ -21,6 +21,7 @@ sim_life_cycle <- function(
     # Initial population
     results_list[[1]] <- life_cycle(spawners, sex_p, fecundity, parr_s, smolt_s, hydro_s, ocean_s, adult_s, spawn_s)
     results_list[[1]]$generation <- 1
+    results_list[[1]]$iteration <- i
     
     # Iterate over generations
     for (j in 2:num_generations) {
@@ -28,6 +29,7 @@ sim_life_cycle <- function(
       prev_results <- results_list[[j - 1]]
       results_list[[j]] <- life_cycle(prev_results$adults_trib, sex_p, fecundity, parr_s, smolt_s, hydro_s, ocean_s, adult_s, spawn_s)
       results_list[[j]]$generation <- j
+      results_list[[j]]$iteration <- i
     }
     
     all_results[[i]] <- results_list
